@@ -6,41 +6,44 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
-public class InputEvent : MonoBehaviour
+namespace KeyMouDrill
 {
-    [SerializeField]
-    private TMP_Text logLabel;
-
-    // Start is called before the first frame update
-    void Start()
+    public class InputEvent : MonoBehaviour
     {
-        
-    }
+        [SerializeField]
+        private TMP_Text _logLabel;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Keyboard.current != null)
+        // Start is called before the first frame update
+        void Start()
         {
-            string[] keyNames = Keyboard.current.allKeys.Where(x => x.isPressed).Select(x => x.name).ToArray();
-            logLabel.text = $"[{string.Join(",", keyNames)}]";
+
         }
-    }
 
-    public void OnMouseWheel(InputAction.CallbackContext context)
-    {
-        if (context.performed)
+        // Update is called once per frame
+        void Update()
         {
-            InputControl control = context.control;
-            logLabel.text = control.name;
+            if (Keyboard.current != null)
+            {
+                string[] keyNames = Keyboard.current.allKeys.Where(x => x.isPressed).Select(x => x.name).ToArray();
+                _logLabel.text = $"[{string.Join(",", keyNames)}]";
+            }
         }
-    }
 
-    public void OnKeyboard(InputAction.CallbackContext context)
-    {
-        if (context.performed)
+        public void OnMouseWheel(InputAction.CallbackContext context)
         {
-            InputControl control = context.control;
+            if (context.performed)
+            {
+                InputControl control = context.control;
+                _logLabel.text = control.name;
+            }
+        }
+
+        public void OnKeyboard(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                InputControl control = context.control;
+            }
         }
     }
 }

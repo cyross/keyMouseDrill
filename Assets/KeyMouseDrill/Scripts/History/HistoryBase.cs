@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class HistoryBase: ScriptableObject
+namespace KeyMouDrill
 {
+    public class HistoryBase
+    {
+    }
 }

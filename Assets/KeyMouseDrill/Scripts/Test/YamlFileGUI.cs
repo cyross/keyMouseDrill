@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -12,44 +10,41 @@ using YamlDotNet.Serialization.NamingConventions;
 using System.Windows.Forms;
 using System.Runtime.CompilerServices;
 
-public class YamlFileGUI : MonoBehaviour
+namespace KeyMouDrill
 {
-    private const string OPEN_FILE_DIALOG_TITLE = @"YAMLファイルを選んでください";
-    private const string YAML_FILE_FILTER = @"YAML file|*.yml;*.yaml";
-
-    [SerializeField]
-    private TMP_Text yaml_result;
-
-    // Start is called before the first frame update
-    void Start()
+    public class YamlFileGUI : MonoBehaviour
     {
-        
-    }
+        private const string OPEN_FILE_DIALOG_TITLE = @"YAMLファイルを選んでください";
+        private const string YAML_FILE_FILTER = @"YAML file|*.yml;*.yaml";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        [SerializeField]
+        private TMP_Text yaml_result;
 
-    public void OnClickOpenYamlFileDialog()
-    {
-        using (var openYamlFileDialog = new OpenFileDialog())
+        // Start is called before the first frame update
+        void Start()
         {
-            openYamlFileDialog.Title = OPEN_FILE_DIALOG_TITLE;
-            openYamlFileDialog.Filter = YAML_FILE_FILTER;
 
-            if( openYamlFileDialog.ShowDialog() == DialogResult.OK )
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        public void OnClickOpenYamlFileDialog()
+        {
+            using (var openYamlFileDialog = new OpenFileDialog())
             {
-                string filePath = openYamlFileDialog.FileName;
-                string scenario_str = File.ReadAllText(filePath);
+                openYamlFileDialog.Title = OPEN_FILE_DIALOG_TITLE;
+                openYamlFileDialog.Filter = YAML_FILE_FILTER;
 
-                var deserializer = new DeserializerBuilder()
-                    .WithNamingConvention(UnderscoredNamingConvention.Instance)
-                    .Build();
-                TestScenario scenario = deserializer.Deserialize<TestScenario>(scenario_str);
-                byte[] bytesUTF8 = System.Text.Encoding.Default.GetBytes(scenario.name);
-                yaml_result.text = System.Text.Encoding.UTF8.GetString(bytesUTF8);
+                if (openYamlFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openYamlFileDialog.FileName;
+                    TestScenario scenario = Yaml.Load<TestScenario>(filePath);
+                    yaml_result.text = Utils.ConvertToUTF8(scenario.ScenarioName);
+                }
             }
         }
     }

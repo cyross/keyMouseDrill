@@ -1,4 +1,7 @@
-class TestScenario
+namespace KeyMouDrill
 {
-    public string name;
+    class TestScenario
+    {
+        public string ScenarioName;
+    }
 }

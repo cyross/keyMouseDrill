@@ -1,20 +1,23 @@
 using UnityEngine;
 
-public class DrillBase: ScriptableObject
+namespace KeyMouDrill
 {
-    public string title;
-    public string gamename;
-    public string casename;
-    public int version;
-    public System.DateTime createdDate;
-    public System.DateTime updatedDate;
-    public string memo;
-    public DrillElement[] drillElements;
-}
+    public class DrillBase
+    {
+        public string Title;
+        public string GameName;
+        public string CaseName;
+        public int Version;
+        public System.DateTime CreatedDate;
+        public System.DateTime UpdatedDate;
+        public string Memo;
+        public DrillElement[] DrillElements;
+    }
 
-public class DrillElement: ScriptableObject
-{
-    public KeyAction action;
-    public string[] keys;
-    public float interval;
+    public class DrillElement
+    {
+        public KeyAction Action;
+        public string[] Keys;
+        public float Amount;
+    }
 }

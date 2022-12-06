@@ -1,0 +1,12 @@
+- title: 屋根床階段建築
+  gameName: フォートナイト
+  caseName: 順番にキーが押されている
+  version: 1
+  createdDate: 2022/01/01
+  updatedDate: 2022/01/01
+  memo: --
+  drillElements:
+    - action: Push
+      keys:
+        - a
+      interval: 0.1

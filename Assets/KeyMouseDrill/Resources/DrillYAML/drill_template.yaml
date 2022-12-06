@@ -1,0 +1,12 @@
+- title: title
+  gameName: game
+  caseName: case
+  version: 1
+  createdDate: 2022/01/01
+  updatedDate: 2022/01/01
+  memo: memo
+  drillElements:
+    - action: 0
+      keys:
+        - a
+      interval: 0.0
