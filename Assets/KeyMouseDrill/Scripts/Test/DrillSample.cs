@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 namespace KeyMouDrill
 {
     public class DrillSample : MonoBehaviour
     {
+        [SerializeField]
+        private TMP_Text _yamlResult;
+
         private KeyMapper[] _keyMaps;
         private PurgeKey[] _purgeKeys;
 
@@ -18,12 +22,14 @@ namespace KeyMouDrill
         {
             _keyMaps = KeyMapper.LoadAll();
             _purgeKeys = PurgeKey.LoadAll();
+#if false
             foreach (KeyMapper k in _keyMaps)
             {
                 Debug.Log(k.DisplayName);
             }
-            //DrillBase drill = Yaml.LoadFromResources<DrillBase>(_SAMPLE_DRILL_FILE_PATH);
-            //Debug.Log(drill.Title);
+#endif
+            DrillSpec drill = Yaml.LoadFromResources<DrillSpec>(_SAMPLE_DRILL_FILE_PATH);
+            _yamlResult.text = $"タイトル：{drill.Title} アクション：{drill.DrillElements[0].Action}";
         }
 
         // Update is called once per frame

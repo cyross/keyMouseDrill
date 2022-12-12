@@ -173,13 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ffd20abe26e4b4eab2e9530ec27773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alpha_num_key_map: {fileID: 11400000, guid: fcde7f989bd8fa64c891db7a3ba3cc9b, type: 2}
-  symbol_key_map: {fileID: 11400000, guid: 826709591a6bfb9468ab53b3e5a4af5b, type: 2}
-  num_pad_key_map: {fileID: 11400000, guid: 9d5e7c7b360ac7045bb64f35e1b6b673, type: 2}
-  function_key_map: {fileID: 11400000, guid: 099296efff70ab144afad615d0458ed1, type: 2}
-  meta_key_map: {fileID: 11400000, guid: eb2cf27ec7e12584e95b8d977ee7504c, type: 2}
-  system_key_map: {fileID: 11400000, guid: 21c0ccd81bf5fb74d9afccabc3550af9, type: 2}
-  purge_key: {fileID: 11400000, guid: b1978529f46999c43933a210f49930a7, type: 2}
+  _yamlResult: {fileID: 1031557017}
 --- !u!1 &188723407
 GameObject:
   m_ObjectHideFlags: 0

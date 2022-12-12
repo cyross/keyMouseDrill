@@ -27,7 +27,7 @@ namespace KeyMouDrill
             return DeserializeYamlString<T>(yamlText);
         }
 
-        private static T DeserializeYamlString<T>(string yamlString)
+        public static T DeserializeYamlString<T>(string yamlString)
         {
             var deserializer = new DeserializerBuilder()
                 .WithNamingConvention(UnderscoredNamingConvention.Instance)
